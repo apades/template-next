@@ -3,9 +3,11 @@ import './index.css'
 import '@/styles/var.css'
 import '@/styles/tailwind.css'
 import '@/styles/tailwindBase.css'
-import { SLFC } from 'react'
+import { SLFC, useMemo } from 'react'
 import { NextIntlClientProvider } from 'next-intl'
 import getI18nConfig from '@/i18n'
+import AntdStyleProvider from './AntdStyleProvider'
+import { ConfigProvider } from 'antd'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -20,7 +22,10 @@ const RootLayout: SLFC = async props => {
     <html lang="en">
       <body>
         <NextIntlClientProvider locale={locale} messages={messages}>
-          {props.children}
+          {/* antd 相关 */}
+          <AntdStyleProvider>
+            <ConfigProvider>{props.children}</ConfigProvider>
+          </AntdStyleProvider>
         </NextIntlClientProvider>
       </body>
     </html>

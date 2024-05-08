@@ -1,6 +1,7 @@
 'use client'
 import { useOnce } from '@/hooks'
 import useI18n from '@/hooks/useI18n'
+import { Button } from '@/standard/antd'
 import { Link } from '@/standard/navigation'
 import { SFC, useState } from 'react'
 
@@ -16,6 +17,7 @@ const Page: SFC = props => {
         client page render: {t('welcome')} {locale}
       </div>
       <div>{state}</div>
+      <Button type="primary">hahaha</Button>
     </div>
   )
 }
