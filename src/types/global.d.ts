@@ -1,4 +1,4 @@
-import { Language } from '@/utils/lang'
+import type { Language } from '@/utils/lang'
 
 declare global {
   interface Window {
@@ -9,6 +9,16 @@ declare global {
   }
 }
 
+type Props<P = string, SP = string> = {
+  params: {
+    [key in P]: string
+  } & {
+    locale: Language
+  }
+  searchParams: {
+    [key in SP]: string
+  }
+}
 declare module 'react' {
   /**
    * Server layout function component
@@ -16,25 +26,23 @@ declare module 'react' {
    * 传入第一个为params type，第二个为searchParams，传入union格式'a' | 'b'
    *  */
   export type SFC<P = string, SP = string> = {
+    (props: Props<P, SP>, context?: any): ReactNode | Promise<ReactNode>
+  }
+
+  /**Server layout function component */
+  export type SLFC<P = string, SP = string> = {
     (
-      props: {
-        params: {
-          [key in P]: string
-        } & {
-          locale: Language
-        }
-        searchParams: {
-          [key in SP]: string
-        }
+      props: Props<P, SP> & {
+        children?: ReactNode
       },
       context?: any
     ): ReactNode | Promise<ReactNode>
   }
-
-  /**Server layout function component */
-  export type SLFC<P = string, SP = string> = SFC<P, SP> & {
-    children: ReactNode
-  }
 }
 
+declare module 'next' {
+  export type GenerateMetadata = {
+    (props: Props<P, SP>): Metadata | Promise<Metadata>
+  }
+}
 export {}
