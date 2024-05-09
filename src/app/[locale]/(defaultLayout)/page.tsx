@@ -7,6 +7,7 @@ export default function Home() {
     <div className="bg-gray-200 f-center">
       <div>{t('welcome')}</div>
       <Link href="/child">to child</Link>
+      <Link href="/layout-child">to layout-child</Link>
     </div>
   )
 }

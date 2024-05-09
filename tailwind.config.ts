@@ -6,6 +6,7 @@ const config: Config = {
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/layout/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
@@ -18,6 +19,12 @@ const config: Config = {
         // 给tailwind插件提示用的，需要和var.css同步更改
         primary: 'var(--primary, #8a57ea)',
         'level-1': 'var(--text-level-1, #282828)',
+      },
+      width: {
+        'content-width': 'var(--content-width, 1280px)',
+      },
+      height: {
+        'header-height': 'var(--header-height, 64px)',
       },
     },
   },

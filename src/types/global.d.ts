@@ -15,9 +15,9 @@ type Props<P = string, SP = string> = {
   } & {
     locale: Language
   }
-  searchParams: {
-    [key in SP]: string
-  }
+  // searchParams: {
+  //   [key in SP]: string
+  // }
 }
 declare module 'react' {
   /**

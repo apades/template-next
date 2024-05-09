@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import './index.css'
+import './index.scss'
 import '@/styles/var.css'
 import '@/styles/tailwind.css'
 import '@/styles/tailwindBase.css'
