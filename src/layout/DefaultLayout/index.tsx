@@ -15,7 +15,7 @@ const DefaultLayout: FC<Props> = props => {
       <LayoutHeader />
       <Layout.Content>
         {props.children}
-        <ToTop scrollParent={`.${layoutClass}`} />
+        <ToTop scrollParent={`.${layoutClass} .ant-layout-content`} />
         <LayoutFooter />
       </Layout.Content>
     </Layout>
