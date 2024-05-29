@@ -2,9 +2,9 @@
 **所有的组件尽量不使用原本库export出来的(antd，dayjs，next组件这些)**，都必须在这里二次封装才能在外部使用，例如
 ```ts
 // import { Button } from 'antd';
-import { Button } from 'standard/antd';
+import { Button } from '@standard/antd';
 // import Link from 'next/link'
-import Link from 'standard/link'
+import Link from '@standard/link'
 ```
 ## why
 ### 1
